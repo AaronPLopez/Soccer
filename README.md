@@ -4,7 +4,7 @@
 
 -------------------------------
 
-###Soccer -- (Arc)SOC Scanner
+### Soccer -- (Arc)SOC Scanner
 
 #### Description 
 Soccer is a utility scanning and reading the services' status on a specific ArcGIS Server folder. It then parses this data and writes it out to a CSV file for additional post-capture analysis. It takes advantage of the REST Admin's Service Report resource (https://developers.arcgis.com/rest/enterprise-administration/server/servicesreport.htm) in ArcGIS Server to gather this info. The original goal of soccer was to capture the report endpoint output of a specific folder in ArcGIS Server and save the ArcSOC instance statistics (e.g., Running, Busy, Maximum, etc...) for each service.
@@ -15,7 +15,7 @@ The tool is made available in the .NET 6.0 portable runtime for Windows (win-x64
 ### Download Latest Release
 - [Soccer Download](../../raw/main/binaries/latest/soccer_v0.1.0.0.zip?raw=true
 
-###System Requirements:
+### System Requirements:
  - A 64bit Operating System that is supported by .NET 6.0
 	- .NET on Windows dependencies (https://docs.microsoft.com/en-us/dotnet/core/install/windows?tabs=net60#dependencies)
 	- .NET on Linux dependencies (https://docs.microsoft.com/en-us/dotnet/core/install/linux)
