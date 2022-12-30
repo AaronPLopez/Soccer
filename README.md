@@ -53,10 +53,10 @@ Unique fields (per each service) include information such as:
 	- See https://resources.arcgis.com/en/help/server-admin-api/serviceStatistics.html for more information
 
 #### CSV Sample:
-> "DateTime,Epoch,IntervalSeconds,Host,Folder,ServiceName,Type,Provider,Running,Busy,Maximum,Free,NotCreated,Initializing,Transactions,TotalBusyTime,ServicesCollected,ResponseTimeMilliseconds,ContentLength,ConfiguredState,RealTimeState,Message"
-> 12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,AverageDailyTraffic,MapServer,ArcObjects11,0,0,0,0,0,0,0,0,3,2012.1462,8762,STOPPED,STOPPED,success
-> 12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,CitrusIrrigation,MapServer,ArcObjects11,2,0,10,2,8,0,0,0,3,2012.1462,8762,STARTED,STARTED,success
-> 12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,TrafficSignalLights,MapServer,ArcObjects11,3,0,10,3,7,0,0,0,3,2012.1462,8762,STARTED,STARTED,success
+[^note]: "DateTime,Epoch,IntervalSeconds,Host,Folder,ServiceName,Type,Provider,Running,Busy,Maximum,Free,NotCreated,Initializing,Transactions,TotalBusyTime,ServicesCollected,ResponseTimeMilliseconds,ContentLength,ConfiguredState,RealTimeState,Message"
+[^note]: 12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,AverageDailyTraffic,MapServer,ArcObjects11,0,0,0,0,0,0,0,0,3,2012.1462,8762,STOPPED,STOPPED,success
+[^note]: 12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,CitrusIrrigation,MapServer,ArcObjects11,2,0,10,2,8,0,0,0,3,2012.1462,8762,STARTED,STARTED,success
+[^note]: 12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,TrafficSignalLights,MapServer,ArcObjects11,3,0,10,3,7,0,0,0,3,2012.1462,8762,STARTED,STARTED,success
 
 
 
