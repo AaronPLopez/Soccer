@@ -1,6 +1,6 @@
 # Soccer
-## Version 0.1.0.0
-### Date: 2022/12/29
+## Version 0.1.0.1
+### Date: 2023/06/05
 
 -------------------------------
 
@@ -63,6 +63,9 @@ Unique fields (per each service) include information such as:
 -------------------------------
 
 ##### CHANGELOG
+
+Build 0.1.0.1 (Prerelease)
+1. Fixed a condition that could cause soccer to crash if the ArcGIS Server itself went offline or was unavailable
 
 Build 0.1.0.0 (Prerelease)
 1. Initial release
