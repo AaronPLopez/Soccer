@@ -1,6 +1,6 @@
 # Soccer
-## Version 0.1.0.1
-### Date: 2023/06/05
+## Version 0.1.0.2
+### Date: 2023/08/10
 
 -------------------------------
 
@@ -13,7 +13,7 @@ Currently, soccer is a command-line only utility.
 The tool is made available in the .NET 6.0 portable runtime for Windows (win-x64), Linux (linux-x64) and macOS (osx-x64).
     
 ### Download Latest Release
-[Soccer Download](../../raw/main/binaries/latest/soccer_v0.1.0.1.zip?raw=true)
+[Soccer Download](../../raw/main/binaries/latest/soccer_v0.1.0.2.zip?raw=true)
 
 ### System Requirements:
  - A 64bit Operating System that is supported by .NET 6.0
@@ -63,6 +63,10 @@ Unique fields (per each service) include information such as:
 -------------------------------
 
 ##### CHANGELOG
+
+Build 0.1.0.2 (Prerelease)
+1. Fixed typo in the command-line help that would report the incorrect version for soccer
+2. Binary build using the .NET 6 SDK 6.0.413 (.NET Runtime 6.0.21)
 
 Build 0.1.0.1 (Prerelease)
 1. Fixed a condition that could cause soccer to crash if the ArcGIS Server itself went offline or was unavailable
