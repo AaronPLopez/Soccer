@@ -13,7 +13,7 @@ Currently, soccer is a command-line only utility.
 The tool is made available in the .NET 6.0 portable runtime for Windows (win-x64), Linux (linux-x64) and macOS (osx-x64).
     
 ### Download Latest Release
-[Soccer Download](../../raw/main/binaries/latest/soccer_v0.1.0.2.zip?raw=true)
+[Soccer Download]([https://github.com/AaronPLopez/Soccer/blob/main/binaries/v0.1.0.2/soccer_v0.1.0.2.zip])
 
 ### System Requirements:
  - A 64bit Operating System that is supported by .NET 6.0
