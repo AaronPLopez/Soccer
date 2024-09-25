@@ -1,6 +1,6 @@
 # Soccer
-## Version 0.3.0.0
-### Date: 2024/01/17
+## Version 0.3.1.0
+### Date: 2024/09/24
 
 -------------------------------
 
@@ -14,7 +14,7 @@ The tool is made available in the .NET 8.0 portable runtime for Windows (win-x64
 Binaries for osx-arm64 and win-arm64 have been recently added (separate downloads).
     
 ### Download Latest Release
-[Soccer Download](https://github.com/AaronPLopez/Soccer/raw/main/binaries/v0.3.0.0/soccer_v0.3.0.0.zip)
+[Soccer Download](https://github.com/AaronPLopez/Soccer/raw/main/binaries/v0.3.1.0/soccer_v0.3.1.0.zip)
 
 ### System Requirements:
  - A 64bit Operating System that is supported by .NET 8.0 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
@@ -66,6 +66,14 @@ Unique fields (per each service) include information such as:
 
 ##### CHANGELOG
 
+Build 0.3.1.0 (Prerelease)
+1. The "-i [numeric value]" option, "Interval in seconds" has now been changed to Interval in milliseconds to allow for finer grained control of the collection precision
+   Previous scripts which passed in a parameter of "-i 5" will need to update it to reflect "-i 5000", otherwise the script will run too quickly
+2. A maximum iteration option "-m [numeric value]", has been added to have Soccer exist after checking a folder a specified number of times; the default is unlimited iterations
+3. Application debug logging added (via NLog) through the option "-apploglevel [LogLevel value]"; choices are OFF (default), ERROR, WARN, INFO, DEBUG, TRACE
+   The application logging is currently synchronous, so using DEBUG or TRACE can affect reporting performance of Soccer
+4. Underneath the hood, the measurement of ResponseTimeMilliseconds has been changed from TotalMilliseconds to Milliseconds; the end result is a slight change in the precision of the represented millisecond value (e.g., 202 vs 202.2088)
+   
 Build 0.3.0.0 (Prerelease)
 1. Port of Soccer to .NET 8.0
 
