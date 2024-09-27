@@ -1,6 +1,6 @@
 # Soccer
-## Version 0.3.1.0
-### Date: 2024/09/24
+## Version 0.3.2.0
+### Date: 2024/09/26
 
 -------------------------------
 
@@ -33,16 +33,20 @@ soccer.exe -s "[https://ArcGISServer/ServerWebAdaptor]" -f [FolderToScan] -t "[P
  - [RefreshInSeconds] -- Refresh interval (in seconds) in which to re-read the Service Report resource and gather new statistics
  - [OutputDirectoryForResults] -- The directory path where the results file will be saved; will default to the "Documents\Soccer\Reports" directory; the directory will be created if it does not exist
  - [NameOfCSVFile] -- The name of the file to use for storing the results; if specifying a file name, include the .csv file extension (e.g., -n "myfile.csv"); will default to a "unique" file starting with "Service_Report-" and ending with a datetime suffix
- - [Append] -- Passing in "-a true" with the "-n [NameOfCSVFile]" option will append results to an existing data file
+ - [MaximumIterations] -- A numeric value which specifies how many times soccer should report on the specified folder
+ - [LogLevel] -- Whether or not to record application runtime information to a separate log file in the report folder (default is OFF (silent); other options include: ERROR, WARN, INFO, DEBUG, TRACE)
+ - [-a true] -- Boolean, whether or not to append the output to an existing data file (default is false, if true, this parameter must be used with the -n [NameOfCSVFile] option)
+ - [-c true] -- Boolean, whether or not to send the Accept-Encoding header to request the compression of the server responses (default is true)
 
 ##### Usage Examples (Windows):
 soccer.exe -s "https://gisserver.domain.com/server" -f MAPS -t "SqyWOcKZp9stZ_C01DQ.." -i 5
+soccer.exe -s "https://gisserver.domain.com/server" -f MAPS -t "SqyWOcKZp9stZ_C01DQ.." -i 5000 -m 10 -apploglevel debug -c true
 
 
 
 #### CSV Output
 The CSV file writes over 20 data columns with every iteration (default is every 5 seconds). Every service folder in the folder of interest will get a line written to the CSV file. 
-Data fields like: "DateTime,Epoch,IntervalSeconds,Folder and Message" are the same for all the services. The Message column reports a "success" if the service report endpoint could 
+Data fields like: "DateTime,Epoch,IntervalMilliseconds,Folder and Message" are the same for all the services. The Message column reports a "success" if the service report endpoint could 
 be read or a brief reason why it could not.
 Unique fields (per each service) include information such as:
  - The Service details (e.g., name, type, realtime state)        
@@ -55,10 +59,10 @@ Unique fields (per each service) include information such as:
 	- See https://resources.arcgis.com/en/help/server-admin-api/serviceStatistics.html for more information
 
 #### CSV Sample:
-###### DateTime,Epoch,IntervalSeconds,Host,Folder,ServiceName,Type,Provider,Running,Busy,Maximum,Free,NotCreated,Initializing,Transactions,TotalBusyTime,ServicesCollected,ResponseTimeMilliseconds,ContentLength,ConfiguredState,RealTimeState,Message
-12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,AverageDailyTraffic,MapServer,ArcObjects11,0,0,0,0,0,0,0,0,3,2012.1462,8762,STOPPED,STOPPED,success
-12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,CitrusIrrigation,MapServer,ArcObjects11,2,0,10,2,8,0,0,0,3,2012.1462,8762,STARTED,STARTED,success
-12/29/2022 12:36:21 AM,1672274181104,20,gisserver.domain.com,MAPS,TrafficSignalLights,MapServer,ArcObjects11,3,0,10,3,7,0,0,0,3,2012.1462,8762,STARTED,STARTED,success
+###### DateTime,Epoch,IntervalMilliseconds,Host,Folder,ServiceName,Type,Provider,Running,Busy,Maximum,Free,NotCreated,Initializing,Transactions,TotalBusyTime,ServicesCollected,ResponseTimeMilliseconds,ContentLength,ConfiguredState,RealTimeState,Message
+12/29/2022 12:36:21 AM,1672274181104,5000,gisserver.domain.com,MAPS,AverageDailyTraffic,MapServer,ArcObjects11,0,0,0,0,0,0,0,0,3,312,8762,STOPPED,STOPPED,success
+12/29/2022 12:36:21 AM,1672274181104,5000,gisserver.domain.com,MAPS,CitrusIrrigation,MapServer,ArcObjects11,2,0,10,2,8,0,0,0,3,312,8762,STARTED,STARTED,success
+12/29/2022 12:36:21 AM,1672274181104,5000,gisserver.domain.com,MAPS,TrafficSignalLights,MapServer,ArcObjects11,3,0,10,3,7,0,0,0,3,312,8762,STARTED,STARTED,success
 
 
 
@@ -66,6 +70,11 @@ Unique fields (per each service) include information such as:
 
 ##### CHANGELOG
 
+Build 0.3.2.0 (Prerelease)
+1. Added some verbosity to the application log (e.g., HTTP version, HTTP response header key/value pairs, ArcGIS Server version)
+2. Added ability of the internal HTTP framework to automatically perform decompression of the server's response
+3. Added a "-c [bool]" option, which tells the HTTP client (e.g., soccer) whether or not to send the Accept-Encoding header compressing the server's response; the default is true (which is to request that the response is compressed)
+   
 Build 0.3.1.0 (Prerelease)
 1. The "-i [numeric value]" option, "Interval in seconds" has now been changed to Interval in milliseconds to allow for finer grained control of the collection precision
    Previous scripts which passed in a parameter of "-i 5" will need to update it to reflect "-i 5000", otherwise the script will run too quickly
