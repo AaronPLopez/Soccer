@@ -82,6 +82,7 @@ Build 0.3.1.0 (Prerelease)
 3. Application debug logging added (via NLog) through the option "-apploglevel [LogLevel value]"; choices are OFF (default), ERROR, WARN, INFO, DEBUG, TRACE
    The application logging is currently synchronous, so using DEBUG or TRACE can affect reporting performance of Soccer
 4. Underneath the hood, the measurement of ResponseTimeMilliseconds has been changed from TotalMilliseconds to Milliseconds; the end result is a slight change in the precision of the represented millisecond value (e.g., 202 vs 202.2088)
+5. Added the display of the MaximumIterations option to console output
    
 Build 0.3.0.0 (Prerelease)
 1. Port of Soccer to .NET 8.0
