@@ -14,7 +14,7 @@ The tool is made available in the .NET 8.0 portable runtime for Windows (win-x64
 Binaries for osx-arm64 and win-arm64 have been recently added (separate downloads).
     
 ### Download Latest Release
-[Soccer Download](https://github.com/AaronPLopez/Soccer/raw/main/binaries/v0.3.1.0/soccer_v0.3.1.0.zip)
+[Soccer Download](https://github.com/AaronPLopez/Soccer/raw/main/binaries/v0.3.2.0/soccer_v0.3.2.0.zip)
 
 ### System Requirements:
  - A 64bit Operating System that is supported by .NET 8.0 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
