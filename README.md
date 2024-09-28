@@ -1,6 +1,6 @@
 # Soccer
-## Version 0.3.2.0
-### Date: 2024/09/26
+## Version 0.3.2.1
+### Date: 2024/09/27
 
 -------------------------------
 
@@ -14,7 +14,7 @@ The tool is made available in the .NET 8.0 portable runtime for Windows (win-x64
 Binaries for osx-arm64 and win-arm64 have been recently added (separate downloads).
     
 ### Download Latest Release
-[Soccer Download](https://github.com/AaronPLopez/Soccer/raw/main/binaries/v0.3.2.0/soccer_v0.3.2.0.zip)
+[Soccer Download](https://github.com/AaronPLopez/Soccer/raw/main/binaries/v0.3.2.1/soccer_v0.3.2.1.zip)
 
 ### System Requirements:
  - A 64bit Operating System that is supported by .NET 8.0 (https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
@@ -45,9 +45,9 @@ soccer.exe -s "https://gisserver.domain.com/server" -f MAPS -t "SqyWOcKZp9stZ_C0
 
 
 #### CSV Output
-The CSV file writes over 20 data columns with every iteration (default is every 5 seconds). Every service folder in the folder of interest will get a line written to the CSV file. 
-Data fields like: "DateTime,Epoch,IntervalMilliseconds,Folder and Message" are the same for all the services. The Message column reports a "success" if the service report endpoint could 
-be read or a brief reason why it could not.
+The CSV file writes over 20 data columns with each iteration (default is every 5 seconds). A data line will be written to the CSV file with information on each service that exists in the customizable folder of interest. 
+Data fields like: "DateTime,Epoch,IntervalMillisecond,Folder and Message" are the same for all the services. The Message column reports a "success" if the service report endpoint could 
+be read or a brief reason why it could not. No information will be written if no services exist in the folder. The DateTime field is in UTC.
 Unique fields (per each service) include information such as:
  - The Service details (e.g., name, type, realtime state)        
  - ArcSOC Instance details (e.g., running, busy, maximum, not created)
@@ -69,6 +69,10 @@ Unique fields (per each service) include information such as:
 -------------------------------
 
 ##### CHANGELOG
+
+Build 0.3.2.1 (Prerelease)
+1. Fixed an issue with the report folder data where the Iteminfo's minScale property was defined as an int instead of a double, this caused the parsing of some services to fail where the data of this property was a numeric double
+2. Fixed an issue where soccer no longer lists an empty folder (e.g., one that contains no services) as an error in the application log (e.g., the optional runtime log for troubleshooting); if soccer is configured to analysis a folder that is empty (at the time of each collect), nothing other than the column header will appear in the csv output file
 
 Build 0.3.2.0 (Prerelease)
 1. Added some verbosity to the application log (e.g., HTTP version, HTTP response header key/value pairs, ArcGIS Server version)
